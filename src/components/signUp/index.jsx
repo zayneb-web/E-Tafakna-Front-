@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import api from "../../services/api";
 
@@ -10,6 +10,7 @@ function SignUp() {
   const [showPass4, setShowPass4] = useState(false);
   const [message, setMessage] = useState("");
   const [selectedTab, setSelectedTab] = useState("candidate");
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -52,12 +53,16 @@ function SignUp() {
       });
       if (response && response.data) {
         console.log("registration successful");
+        const { token, refreshToken } = response.data;
+        localStorage.setItem("token", token);
+        localStorage.setItem("refreshToken", refreshToken);
         setFormData({
           email: "",
           password: "",
           confirmPassword: "",
         });
         setMessage("");
+        navigate("/");
       } else {
         console.log("registration failed");
       }

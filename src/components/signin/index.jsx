@@ -1,34 +1,82 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img from "../../assets/images/review/google.png";
 import img2 from "../../assets/images/review/tweet.png";
+import api from "../../services/api";
 
 function SignIn() {
   const [showPass, setShowPass] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
+  const navigate = useNavigate();
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "email") setEmail(value);
+    if (name === "password") setPassword(value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await api.post("http://localhost:3216/api/auth/login", {
+        email,
+        password,
+      });
+      if (response.status === 200 && response.data) {
+        console.log("Login successful");
+        const { token, refreshToken } = response.data;
+        localStorage.setItem("token", token);
+        localStorage.setItem("refreshToken", refreshToken);
+        setMessage("");
+        navigate("/");
+      } else {
+        console.log("Login failed");
+        setMessage("Login failed. Please try again.");
+      }
+    } catch (error) {
+      if (error.response && error.response.data) {
+        console.log("Login failed: " + error.response.data.message);
+        setMessage("Wrong email or password. Please try again.");
+      } else {
+        console.log("Login failed: " + error.message);
+        setMessage("Wrong email or password. Please try again.");
+      }
+    }
+  };
   return (
     <section className="account-section">
       <div className="tf-container">
         <div className="row">
           <div className="wd-form-login">
             <h4>Log In</h4>
-            <div className="nofi-form">
-              <p>
-                Username: <span>candidate</span> or <span>employer</span>
-              </p>
-              <p>
-                Password: <span>jobtex</span>
-              </p>
-            </div>
-            <form action="/">
+            <form action="/" onSubmit={handleSubmit}>
+              {message && (
+                <p
+                  style={{
+                    color: message.includes("failed") ? "red" : "red",
+                    fontWeight: "bold",
+                    fontSize: "10 px",
+                  }}
+                >
+                  {message}
+                </p>
+              )}
+              <br />
               <div className="ip">
                 <label>
-                  Username or email address<span>*</span>
+                  Email address<span>*</span>
                 </label>
                 <input
                   type="text"
-                  defaultValue="Tony Nguyen"
-                  placeholder="Name"
+                  defaultValue=""
+                  placeholder="Email"
+                  name="email"
+                  value={email}
+                  onChange={handleInputChange}
+                  required
                 />
               </div>
               <div className="ip">
@@ -41,6 +89,9 @@ function SignIn() {
                     className="input-form password-input"
                     placeholder="Password"
                     id="password-input"
+                    name="password"
+                    value={password}
+                    onChange={handleInputChange}
                     required
                   />
                   <Link
