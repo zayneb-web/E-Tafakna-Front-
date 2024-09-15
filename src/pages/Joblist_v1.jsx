@@ -1,38 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Breadcrumb from "../components/breadcrumb";
 import Header4 from "../components/header/Header4";
 import JobSec1 from "../components/jobs/JobSec1";
-import dataJobs from "../assets/fakeData/dataJobs";
 import Footer from "../components/footer";
 import FormSearch from "../components/formsearch";
 import Gotop from "../components/gotop";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { Collapse } from "react-collapse";
 import logo from "../assets/images/logo.png";
+import Header2 from "../components/header/Header2";
 
 Joblist_v1.propTypes = {};
 
 function Joblist_v1(props) {
+  const [jobs, setJobs] = useState([]);
   const [toggle, setToggle] = useState({
     key: "",
     status: false,
   });
   const [isShowMobile, setShowMobile] = useState(false);
 
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await fetch("http://localhost:3216/api/job/getAll");
+        if (!response.ok) throw new Error("Network response was not ok");
+        const data = await response.json();
+        console.log("Fetched jobs data:", data); // Debug: Check the fetched data
+        setJobs(data);
+      } catch (error) {
+        console.error("Error fetching jobs:", error);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
   const handleToggle = (key) => {
-    if (toggle.key === key) {
-      setToggle({
-        status: false,
-      });
-    } else {
-      setToggle({
-        status: true,
-        key,
-      });
-    }
+    setToggle(prev => (prev.key === key ? { status: !prev.status } : { status: true, key }));
   };
 
   const handleMobile = () => {
@@ -41,6 +48,18 @@ function Joblist_v1(props) {
     !isShowMobile
       ? getMobile.classList.add("modal-menu--open")
       : getMobile.classList.remove("modal-menu--open");
+  };
+
+  const refreshJobs = async () => {
+    try {
+      const response = await fetch("http://localhost:3216/api/job/getAll");
+      if (!response.ok) throw new Error("Network response was not ok");
+      const data = await response.json();
+      console.log("Refreshed jobs data:", data); // Debug: Check the refreshed data
+      setJobs(data.jobs);
+    } catch (error) {
+      console.error("Error fetching jobs:", error);
+    }
   };
 
   return (
@@ -90,34 +109,7 @@ function Joblist_v1(props) {
                             }}
                           >
                             <li className="menu-item menu-item-mobile">
-                              <Link to="/">Home Page 01 </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/home_v2">Home Page 02 </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/home_v3">Home Page 03 </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/home_v4">Home Page 04 </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/home_v5">Home Page 05 </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/home_v6">Home Page 06 </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/home_v7">Home Page 07 </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/home_v8">Home Page 08 </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/home_v9">Home Page 09 </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/home_v10">Home Page 10 </Link>
+                              <Link to="/home_v7">Home</Link>
                             </li>
                           </ul>
                         </Collapse>
@@ -146,42 +138,9 @@ function Joblist_v1(props) {
                               <Link to="/joblist_v1">List Layout</Link>
                             </li>
                             <li className="menu-item menu-item-mobile">
-                              <Link to="/job-grid">Grid Layout</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/job-list-sidebar">List Sidebar</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/job-grid-sidebar">Grid Sidebar</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v5">
-                                List Sidebar Fullwidth
-                              </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v6">
-                                Grid Sidebar Fullwidth
-                              </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v7">Top Map</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v8">Top Map Sidebar</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v9">Half Map - V1</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v10">Half Map - V2</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
                               <Link to="/jobsingle_v1">Jobs Single - V1</Link>
                             </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/jobsingle_v2">Jobs Single - V2</Link>
-                            </li>
+                          
                           </ul>
                         </Collapse>
                       </li>
@@ -205,32 +164,11 @@ function Joblist_v1(props) {
                               }`,
                             }}
                           >
-                            <li className="menu-item">
-                              <Link to="/employers_v1">List Layout</Link>
-                            </li>
+                          
                             <li className="menu-item">
                               <Link to="/employers_v2">Grid Layout</Link>
                             </li>
-                            <li className="menu-item">
-                              <Link to="/employers_v3">List Sidebar</Link>
-                            </li>
-                            <li className="menu-item">
-                              <Link to="/employers_v4">Grid Sidebar</Link>
-                            </li>
-                            <li className="menu-item">
-                              <Link to="/employers_v5">Full Width</Link>
-                            </li>
-                            <li className="menu-item">
-                              <Link to="/employers_v6">Top Map</Link>
-                            </li>
-                            <li className="menu-item">
-                              <Link to="/employers_v7">Half Map</Link>
-                            </li>
-                            <li className="menu-item">
-                              <Link to="/employersingle_v1">
-                                Employers Single - V1
-                              </Link>
-                            </li>
+                          
                             <li className="menu-item">
                               <Link to="/employersingle_v2">
                                 Employers Single - V2
@@ -269,32 +207,16 @@ function Joblist_v1(props) {
                               }`,
                             }}
                           >
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidates_v1">List Layout</Link>
-                            </li>
+                            
                             <li className="menu-item menu-item-mobile">
                               <Link to="/candidates_v2">Grid Layout</Link>
                             </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidates_v3">List Sidebar</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidates_v4">Top Map</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidates_v5">Half Map</Link>
-                            </li>
+                          
                             <li className="menu-item menu-item-mobile">
                               <Link to="/candidates_v6">No Available V1</Link>
                             </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidates_v7">No Available V2</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidatesingle_v1">
-                                Candidate Single - V1
-                              </Link>
-                            </li>
+                           
+                     
                             <li className="menu-item menu-item-mobile">
                               <Link to="/candidatesingle_v2">
                                 Candidate Single - V2
@@ -324,37 +246,6 @@ function Joblist_v1(props) {
                         >
                           Blog
                         </Link>
-                        <Collapse isOpened={toggle.key === "blog"}>
-                          <ul
-                            className="sub-menu-mobile"
-                            style={{
-                              display: `${
-                                toggle.key === "blog" ? "block" : "none"
-                              }`,
-                            }}
-                          >
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/blog_v1">Blog List </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/blog_v2">Blog Grid</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/blog_v3">Blog Masonry</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/blogsingle_v1">Blog Details - V1</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/blogsingle_v2">Blog Details - V2</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/blogsingle_v3">
-                                Blog Details Sidebar
-                              </Link>
-                            </li>
-                          </ul>
-                        </Collapse>
                       </li>
                       <li className="menu-item menu-item-has-children-mobile">
                         <Link
@@ -384,27 +275,7 @@ function Joblist_v1(props) {
                             <li className="menu-item menu-item-mobile">
                               <Link to="/termsofuse">Terms Of Use</Link>
                             </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/pricing">Pricing</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/shop">Shop List</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/shoppingcart">Shopping Cart</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/shopsingle">Shop Single</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/checkout">Checkout</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/login">Login</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/createaccount">Create Account</Link>
-                            </li>
+                          
                             <li className="menu-item menu-item-mobile">
                               <Link to="/contactus">Contact Us</Link>
                             </li>
@@ -530,12 +401,12 @@ function Joblist_v1(props) {
           </div>
         </div>
       </div>
-      <Header4 clname="actJob1" handleMobile={handleMobile} />
+      <Header2 clname="actJob1" handleMobile={handleMobile} />
       <Breadcrumb title="Find Jobs" className="breadcrumb-section" />
 
       <FormSearch />
 
-      <JobSec1 data={dataJobs} />
+      <JobSec1 data={jobs} />
       <Footer />
       <Gotop />
     </>

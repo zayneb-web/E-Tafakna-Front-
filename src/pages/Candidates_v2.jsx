@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { Collapse } from "react-collapse";
 import logo from "../assets/images/logo.png";
-import Header4 from "../components/header/Header4";
+import Header2 from "../components/header/Header2";
 
 Candidates_v2.propTypes = {};
 
@@ -144,42 +144,9 @@ function Candidates_v2(props) {
                               <Link to="/joblist_v1">List Layout</Link>
                             </li>
                             <li className="menu-item menu-item-mobile">
-                              <Link to="/job-grid">Grid Layout</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/job-list-sidebar">List Sidebar</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/job-grid-sidebar">Grid Sidebar</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v5">
-                                List Sidebar Fullwidth
-                              </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v6">
-                                Grid Sidebar Fullwidth
-                              </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v7">Top Map</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v8">Top Map Sidebar</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v9">Half Map - V1</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v10">Half Map - V2</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
                               <Link to="/jobsingle_v1">Jobs Single - V1</Link>
                             </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/jobsingle_v2">Jobs Single - V2</Link>
-                            </li>
+                            
                           </ul>
                         </Collapse>
                       </li>
@@ -203,43 +170,19 @@ function Candidates_v2(props) {
                               }`,
                             }}
                           >
-                            <li className="menu-item">
-                              <Link to="/employers_v1">List Layout</Link>
-                            </li>
+                          
                             <li className="menu-item">
                               <Link to="/employers_v2">Grid Layout</Link>
                             </li>
-                            <li className="menu-item">
-                              <Link to="/employers_v3">List Sidebar</Link>
-                            </li>
-                            <li className="menu-item">
-                              <Link to="/employers_v4">Grid Sidebar</Link>
-                            </li>
-                            <li className="menu-item">
-                              <Link to="/employers_v5">Full Width</Link>
-                            </li>
-                            <li className="menu-item">
-                              <Link to="/employers_v6">Top Map</Link>
-                            </li>
-                            <li className="menu-item">
-                              <Link to="/employers_v7">Half Map</Link>
-                            </li>
-                            <li className="menu-item">
-                              <Link to="/employersingle_v1">
-                                Employers Single - V1
-                              </Link>
-                            </li>
+                            
+                           
                             <li className="menu-item">
                               <Link to="/employersingle_v2">
                                 Employers Single - V2
                               </Link>
                             </li>
 
-                            <li className="menu-item">
-                              <Link to="/employerreview">
-                                Employers Reviews
-                              </Link>
-                            </li>
+                  
                             <li className="menu-item">
                               <Link to="/employernotfound">
                                 Employers Not Found
@@ -267,32 +210,7 @@ function Candidates_v2(props) {
                               }`,
                             }}
                           >
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidates_v1">List Layout</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile current-item">
-                              <Link to="/candidates_v2">Grid Layout</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidates_v3">List Sidebar</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidates_v4">Top Map</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidates_v5">Half Map</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidates_v6">No Available V1</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidates_v7">No Available V2</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidatesingle_v1">
-                                Candidate Single - V1
-                              </Link>
-                            </li>
+                            
                             <li className="menu-item menu-item-mobile">
                               <Link to="/candidatesingle_v2">
                                 Candidate Single - V2
@@ -528,7 +446,7 @@ function Candidates_v2(props) {
           </div>
         </div>
       </div>
-      <Header4 clname="actCan1" handleMobile={handleMobile} />
+      <Header2 clname="actCan1" handleMobile={handleMobile} />
       <Breadcrumb title="Find Candidates" className="breadcrumb-section" />
       <Form3 />
       <CandiSec2 data={dataCandi} />

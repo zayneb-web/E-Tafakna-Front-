@@ -12,12 +12,8 @@ function Banner07(props) {
           <div className="col-lg-12">
             <div className="content">
               <div className="heading text-center">
-                <h2 className="text-white">Find the job that fits your life</h2>
-                <p className="text-white">
-                  Resume-Library is a true performance-based job board. Enjoy
-                  custom hiring products and access to up to 10,000 new resume
-                  registrations daily, with no subscriptions or user licences.
-                </p>
+                <h2 className="text-black">Find the job that fits your life</h2>
+               
               </div>
               <div className="icon ic1 ani3">
                 <img

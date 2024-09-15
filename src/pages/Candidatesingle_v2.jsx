@@ -11,6 +11,7 @@ import Gallery from "../components/popup/Gallery";
 import { Collapse } from "react-collapse";
 import logo from "../assets/images/logo.png";
 import Header4 from "../components/header/Header4";
+import Header2 from "../components/header/Header2";
 
 Candidatesingle_v2.propTypes = {};
 
@@ -538,7 +539,7 @@ function Candidatesingle_v2(props) {
           </div>
         </div>
       </div>
-      <Header4 clname="actCan4" handleMobile={handleMobile} />
+      <Header2 clname="actJob2" handleMobile={handleMobile} />
 
       <section className="wrapper-author-page-title stc2 ">
         <div className="tf-container">

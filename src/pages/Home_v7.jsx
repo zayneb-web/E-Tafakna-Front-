@@ -6,12 +6,7 @@ import Category07 from "../components/category/Category07";
 import dataCate from "../assets/fakeData/dataCategory";
 import Job07 from "../components/jobs/Job07";
 import dataJobs from "../assets/fakeData/dataJobs";
-import Location from "../components/location";
-import dataLocation from "../assets/fakeData/dataLocation";
-
-import Box07 from "../components/boxicon/Box07";
 import Couter from "../components/iconbox/Couter";
-import Blog01 from "../components/blog/Blog01";
 import dataBlog from "../assets/fakeData/dataBlog";
 import Partner from "../components/partner";
 import dataPartner from "../assets/fakeData/dataPartner";
@@ -27,11 +22,14 @@ import logo from "../assets/images/logo.png";
 Home_v7.propTypes = {};
 
 function Home_v7(props) {
+
+
   const [toggle, setToggle] = useState({
-    key: "",
+    key: "", 
     status: false,
   });
   const [isShowMobile, setShowMobile] = useState(false);
+  const [userData, setUserData] = useState(null);
 
   const handleToggle = (key) => {
     if (toggle.key === key) {
@@ -60,6 +58,21 @@ function Home_v7(props) {
       live: false,
     });
     window.wow.init();
+
+    // Retrieve user data from localStorage
+    const user = localStorage.getItem('userData');
+    if (user) {
+      setUserData(JSON.parse(user)); // Convertir les données JSON en objet JavaScript
+    }
+    const storedUserData = localStorage.getItem('userData');
+    if (storedUserData) {
+      try {
+        const parsedUserData = JSON.parse(storedUserData);
+        setUserData(parsedUserData);
+      } catch (e) {
+        console.error('Error parsing user data:', e);
+      }
+    }
   }, []);
 
   return (
@@ -109,42 +122,16 @@ function Home_v7(props) {
                             }}
                           >
                             <li className="menu-item menu-item-mobile">
-                              <Link to="/">Home Page 01 </Link>
+                              <Link to="/">Home</Link>
                             </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/home_v2">Home Page 02 </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/home_v3">Home Page 03 </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/home_v4">Home Page 04 </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/home_v5">Home Page 05 </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/home_v6">Home Page 06 </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile current-item">
-                              <Link to="/home_v7">Home Page 07 </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/home_v8">Home Page 08 </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/home_v9">Home Page 09 </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/home_v10">Home Page 10 </Link>
-                            </li>
+                           
                           </ul>
                         </Collapse>
                       </li>
 
                       <li className="menu-item menu-item-has-children-mobile">
                         <Link
-                          to="#"
+                          to="/joblist_v1"
                           className="iteam-menu"
                           onClick={() => {
                             handleToggle("job");
@@ -163,44 +150,11 @@ function Home_v7(props) {
                           >
                             <li className="menu-item menu-item-mobile">
                               <Link to="/joblist_v1">List Layout</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/job-grid">Grid Layout</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/job-list-sidebar">List Sidebar</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/job-grid-sidebar">Grid Sidebar</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v5">
-                                List Sidebar Fullwidth
-                              </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v6">
-                                Grid Sidebar Fullwidth
-                              </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v7">Top Map</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v8">Top Map Sidebar</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v9">Half Map - V1</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/joblist_v10">Half Map - V2</Link>
-                            </li>
+                          </li>
                             <li className="menu-item menu-item-mobile">
                               <Link to="/jobsingle_v1">Jobs Single - V1</Link>
                             </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/jobsingle_v2">Jobs Single - V2</Link>
-                            </li>
+                       
                           </ul>
                         </Collapse>
                       </li>
@@ -224,43 +178,17 @@ function Home_v7(props) {
                               }`,
                             }}
                           >
-                            <li className="menu-item">
-                              <Link to="/employers_v1">List Layout</Link>
-                            </li>
+                           
                             <li className="menu-item">
                               <Link to="/employers_v2">Grid Layout</Link>
                             </li>
-                            <li className="menu-item">
-                              <Link to="/employers_v3">List Sidebar</Link>
-                            </li>
-                            <li className="menu-item">
-                              <Link to="/employers_v4">Grid Sidebar</Link>
-                            </li>
-                            <li className="menu-item">
-                              <Link to="/employers_v5">Full Width</Link>
-                            </li>
-                            <li className="menu-item">
-                              <Link to="/employers_v6">Top Map</Link>
-                            </li>
-                            <li className="menu-item">
-                              <Link to="/employers_v7">Half Map</Link>
-                            </li>
-                            <li className="menu-item">
-                              <Link to="/employersingle_v1">
-                                Employers Single - V1
-                              </Link>
-                            </li>
+                           
                             <li className="menu-item">
                               <Link to="/employersingle_v2">
                                 Employers Single - V2
                               </Link>
                             </li>
 
-                            <li className="menu-item">
-                              <Link to="/employerreview">
-                                Employers Reviews
-                              </Link>
-                            </li>
                             <li className="menu-item">
                               <Link to="/employernotfound">
                                 Employers Not Found
@@ -288,93 +216,26 @@ function Home_v7(props) {
                               }`,
                             }}
                           >
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidates_v1">List Layout</Link>
-                            </li>
+                            
                             <li className="menu-item menu-item-mobile">
                               <Link to="/candidates_v2">Grid Layout</Link>
                             </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidates_v3">List Sidebar</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidates_v4">Top Map</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidates_v5">Half Map</Link>
-                            </li>
+                        
                             <li className="menu-item menu-item-mobile">
                               <Link to="/candidates_v6">No Available V1</Link>
                             </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidates_v7">No Available V2</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/candidatesingle_v1">
-                                Candidate Single - V1
-                              </Link>
-                            </li>
+                            
+                            
                             <li className="menu-item menu-item-mobile">
                               <Link to="/candidatesingle_v2">
                                 Candidate Single - V2
                               </Link>
                             </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/samplecv">Sample CV</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/samplecvslidebar">
-                                Sample CV Sidebar
-                              </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/samplecvdetails">CV Details</Link>
-                            </li>
+                         
                           </ul>
                         </Collapse>
                       </li>
-                      <li className="menu-item menu-item-has-children-mobile">
-                        <Link
-                          to="#"
-                          className="iteam-menu"
-                          onClick={() => {
-                            handleToggle("blog");
-                          }}
-                        >
-                          Blog
-                        </Link>
-                        <Collapse isOpened={toggle.key === "blog"}>
-                          <ul
-                            className="sub-menu-mobile"
-                            style={{
-                              display: `${
-                                toggle.key === "blog" ? "block" : "none"
-                              }`,
-                            }}
-                          >
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/blog_v1">Blog List </Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/blog_v2">Blog Grid</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/blog_v3">Blog Masonry</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/blogsingle_v1">Blog Details - V1</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/blogsingle_v2">Blog Details - V2</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/blogsingle_v3">
-                                Blog Details Sidebar
-                              </Link>
-                            </li>
-                          </ul>
-                        </Collapse>
-                      </li>
+              
                       <li className="menu-item menu-item-has-children-mobile">
                         <Link
                           to="#"
@@ -393,37 +254,11 @@ function Home_v7(props) {
                                 toggle.key === "pages" ? "block" : "none"
                               }`,
                             }}
-                          >
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/aboutus">About Us</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/faqs">FAQS</Link>
-                            </li>
+                          > 
                             <li className="menu-item menu-item-mobile">
                               <Link to="/termsofuse">Terms Of Use</Link>
                             </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/pricing">Pricing</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/shop">Shop List</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/shoppingcart">Shopping Cart</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/shopsingle">Shop Single</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/checkout">Checkout</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/login">Login</Link>
-                            </li>
-                            <li className="menu-item menu-item-mobile">
-                              <Link to="/createaccount">Create Account</Link>
-                            </li>
+                       
                             <li className="menu-item menu-item-mobile">
                               <Link to="/contactus">Contact Us</Link>
                             </li>
@@ -514,36 +349,13 @@ function Home_v7(props) {
             </div>
             <div className="wd-social d-flex aln-center">
               <ul className="list-social d-flex aln-center">
-                <li>
-                  <Link to="#">
-                    <i className="icon-facebook"></i>
-                  </Link>
-                </li>
+               
                 <li>
                   <Link to="#">
                     <i className="icon-linkedin2"></i>
                   </Link>
                 </li>
-                <li>
-                  <Link to="#">
-                    <i className="icon-twitter"></i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="#">
-                    <i className="icon-pinterest"></i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="#">
-                    <i className="icon-instagram1"></i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="#">
-                    <i className="icon-youtube"></i>
-                  </Link>
-                </li>
+                
               </ul>
             </div>
           </div>
@@ -551,19 +363,17 @@ function Home_v7(props) {
       </div>
       <Header2 clname="act1" handleMobile={handleMobile} />
       <Banner07 />
-      <Category07 data={dataCate} />
+      
+      {/* <Category07 data={dataCate} />   */}
 
       <Job07 data={dataJobs} className="jobs-section" />
 
-      <Location data={dataLocation} />
-      <Box07 />
 
       <div className="container">
         <Couter className="background1" />
       </div>
 
-      <Blog01 data={dataBlog} className="news-section" />
-      <Partner data={dataPartner} />
+    <Partner data={dataPartner} />
       <Footer />
       <Gotop />
     </>
