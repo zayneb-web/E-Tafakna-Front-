@@ -42,43 +42,16 @@ function Header03({ clname = "", handleMobile }) {
                         <div className="menu-bar">
                           <ul className="sub-menu-bar">
                             <li className="menu-item">
-                              <NavLink to="/">Home Page 01 </NavLink>
+                              <NavLink to="/">Home</NavLink>
                             </li>
-                            <li className="menu-item">
-                              <NavLink to="/home_v2">Home Page 02 </NavLink>
-                            </li>
-                            <li className="menu-item">
-                              <NavLink to="/home_v3">Home Page 03 </NavLink>
-                            </li>
-                            <li className="menu-item">
-                              <NavLink to="/home_v4">Home Page 04 </NavLink>
-                            </li>
-                            <li className="menu-item">
-                              <NavLink to="/home_v5">Home Page 05 </NavLink>
-                            </li>
+                          
                           </ul>
 
-                          <ul className="sub-menu-bar">
-                            <li className="menu-item">
-                              <NavLink to="/home_v6">Home Page 06 </NavLink>
-                            </li>
-                            <li className="menu-item">
-                              <NavLink to="/home_v7">Home Page 07 </NavLink>
-                            </li>
-                            <li className="menu-item">
-                              <NavLink to="/home_v8">Home Page 08 </NavLink>
-                            </li>
-                            <li className="menu-item">
-                              <NavLink to="/home_v9">Home Page 09 </NavLink>
-                            </li>
-                            <li className="menu-item">
-                              <NavLink to="/home_v10">Home Page 10 </NavLink>
-                            </li>
-                          </ul>
+                          
                         </div>
                       </li>
                       <li className="menu-item menu-item-has-children">
-                        <Link to="#">Find jobs </Link>
+                        <Link to="/joblist_v1">Find jobs </Link>
                         <ul className="sub-menu st1">
                           <li className="nav-sub">
                             <Link to="#">
@@ -89,60 +62,14 @@ function Header03({ clname = "", handleMobile }) {
                               <li className="nav-menu-item">
                                 <NavLink to="/joblist_v1">List Layout</NavLink>
                               </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/job-grid">List Sidebar</NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/job-list-sidebar">
-                                  Grid Layout
-                                </NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/job-grid-sidebar">
-                                  Grid Sidebar
-                                </NavLink>
-                              </li>
-
-                              <li className="nav-menu-item">
-                                <NavLink to="/joblist_v5">
-                                  List Sidebar Fullwidth
-                                </NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/joblist_v6">
-                                  Grid Sidebar Fullwidth
-                                </NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/joblist_v7">Top Map</NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/joblist_v8">
-                                  Top Map Sidebar
-                                </NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/joblist_v9">
-                                  Half Map - V1
-                                </NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/joblist_v10">
-                                  Half Map - V2
-                                </NavLink>
-                              </li>
-                            </ul>
+                               </ul>
                           </li>
                           <li className="nav-sub">
                             <NavLink to="/jobsingle_v1">
                               Jobs Single - V1
                             </NavLink>
                           </li>
-                          <li className="nav-sub">
-                            <NavLink to="/jobsingle_v2">
-                              Jobs Single - V2
-                            </NavLink>
-                          </li>
+                         
                         </ul>
                       </li>
 
@@ -155,46 +82,16 @@ function Header03({ clname = "", handleMobile }) {
                               <span className="icon-keyboard_arrow_right"></span>
                             </Link>
                             <ul className="nav-sub-menu">
-                              <li className="nav-menu-item">
-                                <NavLink to="/employers_v1">
-                                  List Layout
-                                </NavLink>
-                              </li>
+                            
                               <li className="nav-menu-item">
                                 <NavLink to="/employers_v2">
                                   Grid Layout
                                 </NavLink>
                               </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/employers_v3">
-                                  List Sidebar
-                                </NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/employers_v4">
-                                  Grid Sidebar
-                                </NavLink>
-                              </li>
-
-                              <li className="nav-menu-item">
-                                <NavLink to="/employers_v5">
-                                  Grid Fullwidth
-                                </NavLink>
-                              </li>
-
-                              <li className="nav-menu-item">
-                                <NavLink to="/employers_v6">Top Map</NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/employers_v7">Half Map</NavLink>
-                              </li>
+                              
                             </ul>
                           </li>
-                          <li className="nav-sub">
-                            <NavLink to="/employersingle_v1">
-                              Employers Single - V1
-                            </NavLink>
-                          </li>
+                        
                           <li className="nav-sub">
                             <NavLink to="/employersingle_v2">
                               Employers Single - V2
@@ -211,11 +108,7 @@ function Header03({ clname = "", handleMobile }) {
                               Employers Not Found
                             </NavLink>
                           </li>
-                          <li className="nav-sub">
-                            <NavLink to="/employerdashboard">
-                              Employer Dashboard
-                            </NavLink>
-                          </li>
+                        
                         </ul>
                       </li>
                       <li className="menu-item menu-item-has-children">
@@ -227,38 +120,18 @@ function Header03({ clname = "", handleMobile }) {
                               <span className="icon-keyboard_arrow_right"></span>
                             </Link>
                             <ul className="nav-sub-menu">
-                              <li className="nav-menu-item">
-                                <NavLink to="/candidates_v1">
-                                  List Layout
-                                </NavLink>
-                              </li>
+                              
                               <li className="nav-menu-item">
                                 <NavLink to="/candidates_v2">
                                   Grid Layout
                                 </NavLink>
                               </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/candidates_v3">
-                                  List Sidebar
-                                </NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/candidates_v4">Top Map</NavLink>
-                              </li>
-
-                              <li className="nav-menu-item">
-                                <NavLink to="/candidates_v5">Half Map</NavLink>
-                              </li>
-                              <li className="nav-menu-item">
+                                      <li className="nav-menu-item">
                                 <NavLink to="/candidates_v6">
                                   No Available - V1
                                 </NavLink>
                               </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/candidates_v7">
-                                  No Available - V2
-                                </NavLink>
-                              </li>
+                            
                             </ul>
                           </li>
                           <li className="nav-sub">
@@ -282,11 +155,7 @@ function Header03({ clname = "", handleMobile }) {
                               </li>
                             </ul>
                           </li>
-                          <li className="nav-sub">
-                            <NavLink to="/candidatesingle_v1">
-                              Candidate Single - V1
-                            </NavLink>
-                          </li>
+                       
                           <li className="nav-sub">
                             <NavLink to="/candidatesingle_v2">
                               Candidate Single - V2
@@ -300,101 +169,7 @@ function Header03({ clname = "", handleMobile }) {
                           </li>
                         </ul>
                       </li>
-                      <li className="menu-item menu-item-has-children">
-                        <Link to="#">Blog</Link>
-                        <ul className="sub-menu st1">
-                          <li className="nav-sub">
-                            <Link to="#">
-                              Blog Listing
-                              <span className="icon-keyboard_arrow_right"></span>
-                            </Link>
-                            <ul className="nav-sub-menu">
-                              <li className="nav-menu-item">
-                                <NavLink to="/blog_v1">Blog List - V1 </NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/blog_v2">Blog Grid</NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/blog_v3">Blog Masonry</NavLink>
-                              </li>
-                            </ul>
-                          </li>
-                          <li className="nav-sub">
-                            <Link to="#">
-                              Blog Details
-                              <span className="icon-keyboard_arrow_right"></span>
-                            </Link>
-                            <ul className="nav-sub-menu">
-                              <li className="nav-menu-item">
-                                <NavLink to="/blogsingle_v1">
-                                  Blog Details - V1
-                                </NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/blogsingle_v2">
-                                  Blog Details - V2
-                                </NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/blogsingle_v3">
-                                  Blog Details Sidebar
-                                </NavLink>
-                              </li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className="menu-item menu-item-has-children">
-                        <Link to="#">Pages</Link>
-                        <ul className="sub-menu st1">
-                          <li className="nav-sub">
-                            <Link to="#">
-                              Shop
-                              <span className="icon-keyboard_arrow_right"></span>{" "}
-                            </Link>
-                            <ul className="nav-sub-menu">
-                              <li className="nav-menu-item">
-                                <NavLink to="/shop">Shop List</NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/shopsingle">Shop Single</NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/shoppingcart">
-                                  Shopping Cart
-                                </NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/checkout">Checkout</NavLink>
-                              </li>
-                            </ul>
-                          </li>
-                          <li className="nav-sub">
-                            <NavLink to="/aboutus">About Us</NavLink>
-                          </li>
-                          <li className="nav-sub">
-                            <NavLink to="/faqs">FAQS</NavLink>
-                          </li>
-                          <li className="nav-sub">
-                            <NavLink to="/termsofuse">Terms Of Use</NavLink>
-                          </li>
-                          <li className="nav-sub">
-                            <NavLink to="/pricing">Pricing</NavLink>
-                          </li>
-                          <li className="nav-sub">
-                            <NavLink to="/login">Login</NavLink>
-                          </li>
-                          <li className="nav-sub">
-                            <NavLink to="/createaccount">
-                              Create Account
-                            </NavLink>
-                          </li>
-                          <li className="nav-sub">
-                            <NavLink to="/contactus">Contact Us</NavLink>
-                          </li>
-                        </ul>
-                      </li>
+                      
                     </ul>
                   </nav>
                 </div>

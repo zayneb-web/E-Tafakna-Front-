@@ -8,8 +8,8 @@ import Video from "../popup/Video";
 TabJob.propTypes = {};
 
 function TabJob(props) {
-  const { data } = props;
-  const { handlePopup } = props;
+  const { data, handlePopup } = props;
+
 
   return (
     <section className="tab-section">
@@ -77,7 +77,6 @@ function TabJob(props) {
                     </div>
                   </Tab>
                 ))}
-
                 <Link to="#" className="btn-load">
                   Load more Job Results (3719)
                 </Link>
@@ -127,6 +126,9 @@ function TabJob(props) {
                                 <span className="icon-send"></span>
                                 Apply Now
                               </Link>
+                            </div>
+                            <div>
+                              
                             </div>
                           </div>
                         </div>

@@ -488,7 +488,7 @@ function Header({ clname = "", handleMobile }) {
                         </div>
                       </li>
                       <li className="menu-item menu-item-has-children ">
-                        <Link to="#">Find jobs </Link>
+                        <Link to="/joblist_v1">Find jobs </Link>
                         <ul className="sub-menu st1">
                           <li className="nav-sub">
                             <Link to="#">
@@ -709,101 +709,7 @@ function Header({ clname = "", handleMobile }) {
                           </li>
                         </ul>
                       </li>
-                      <li className="menu-item menu-item-has-children">
-                        <Link to="#">Blog</Link>
-                        <ul className="sub-menu st1">
-                          <li className="nav-sub">
-                            <Link to="#">
-                              Blog Listing
-                              <span className="icon-keyboard_arrow_right"></span>
-                            </Link>
-                            <ul className="nav-sub-menu">
-                              <li className="nav-menu-item">
-                                <NavLink to="/blog_v1">Blog List </NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/blog_v2">Blog Grid</NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/blog_v3">Blog Masonry</NavLink>
-                              </li>
-                            </ul>
-                          </li>
-                          <li className="nav-sub">
-                            <Link to="#">
-                              Blog Details
-                              <span className="icon-keyboard_arrow_right"></span>{" "}
-                            </Link>
-                            <ul className="nav-sub-menu">
-                              <li className="nav-menu-item">
-                                <NavLink to="/blogsingle_v1">
-                                  Blog Details - V1
-                                </NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/blogsingle_v2">
-                                  Blog Details - V2
-                                </NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/blogsingle_v3">
-                                  Blog Details Sidebar
-                                </NavLink>
-                              </li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className="menu-item menu-item-has-children">
-                        <Link to="#">Pages</Link>
-                        <ul className="sub-menu st1">
-                          <li className="nav-sub">
-                            <Link to="#">
-                              Shop
-                              <span className="icon-keyboard_arrow_right"></span>{" "}
-                            </Link>
-                            <ul className="nav-sub-menu">
-                              <li className="nav-menu-item">
-                                <NavLink to="/shop">Shop List</NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/shopsingle">Shop Single</NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/shoppingcart">
-                                  Shopping Cart
-                                </NavLink>
-                              </li>
-                              <li className="nav-menu-item">
-                                <NavLink to="/checkout">Checkout</NavLink>
-                              </li>
-                            </ul>
-                          </li>
-                          <li className="nav-sub">
-                            <NavLink to="/aboutus">About Us</NavLink>
-                          </li>
-                          <li className="nav-sub">
-                            <NavLink to="/faqs">FAQS</NavLink>
-                          </li>
-                          <li className="nav-sub">
-                            <NavLink to="/termsofuse">Terms Of Use</NavLink>
-                          </li>
-                          <li className="nav-sub">
-                            <NavLink to="/pricing">Pricing</NavLink>
-                          </li>
-                          <li className="nav-sub">
-                            <NavLink to="/login">Login</NavLink>
-                          </li>
-                          <li className="nav-sub">
-                            <NavLink to="/createaccount">
-                              Create Account
-                            </NavLink>
-                          </li>
-                          <li className="nav-sub">
-                            <NavLink to="/contactus">Contact Us</NavLink>
-                          </li>
-                        </ul>
-                      </li>
+                   
                     </ul>
                   </nav>
                 </div>
